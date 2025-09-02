@@ -31,6 +31,10 @@ class ExpenseViewModel @Inject constructor(
 
     private val rateCache = mutableMapOf<Pair<String, String>, BigDecimal>()
 
+    private val _error = MutableStateFlow<String?>(null)
+    val error: StateFlow<String?> = _error
+    fun clearError() { _error.value = null }
+
     val homeCurrency: StateFlow<String> =
         userPrefs.homeCurrency.stateIn(viewModelScope, SharingStarted.Eagerly, "USD")
 
@@ -75,21 +79,28 @@ class ExpenseViewModel @Inject constructor(
         to: String
     ): BigDecimal? {
         if (from.equals(to, ignoreCase = true)) {
-            return BigDecimal.valueOf(amountCents,2)
+            return BigDecimal.valueOf(amountCents, 2)
         }
 
         val key = from.uppercase() to to.uppercase()
 
         val rate: BigDecimal = rateCache[key] ?: try {
             val resp = api.getLatest(from.uppercase(), to.uppercase())
-            val rateDbl = resp.rates[to.uppercase()] ?: return null
+            val rateDbl = resp.rates[to.uppercase()]
+            if (rateDbl == null) {
+                _error.value = "Unable to fetch the latest rates. Please check your internet or try again later."
+                _showInHomeCurrency.value = false
+                return null
+            }
             BigDecimal.valueOf(rateDbl).also { rateCache[key] = it }
         } catch (e: Exception) {
             Log.e("CurrencyDebug", "Conversion failed", e)
+            _error.value = "Unable to fetch the latest rates. Please check your internet or try again later."
+            _showInHomeCurrency.value = false
             return null
         }
 
-        val amount = BigDecimal.valueOf(amountCents,2)
+        val amount = BigDecimal.valueOf(amountCents, 2)
         return amount.multiply(rate)
     }
 
@@ -104,7 +115,6 @@ class ExpenseViewModel @Inject constructor(
             onResult(result)
         }
     }
-
 
     fun createOrUpdate(
         title: String,
