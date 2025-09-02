@@ -1,0 +1,28 @@
+package com.example.expensetracker.resources
+
+val hardcodedCurrencies = listOf(
+    CurrencyOption("USD", "US Dollar"),
+    CurrencyOption("EUR", "Euro"),
+    CurrencyOption("GBP", "British Pound"),
+    CurrencyOption("JPY", "Japanese Yen"),
+    CurrencyOption("CAD", "Canadian Dollar"),
+    CurrencyOption("AUD", "Australian Dollar"),
+    CurrencyOption("NZD", "New Zealand Dollar"),
+    CurrencyOption("CHF", "Swiss Franc"),
+    CurrencyOption("SEK", "Swedish Krona"),
+    CurrencyOption("NOK", "Norwegian Krone"),
+    CurrencyOption("DKK", "Danish Krone"),
+    CurrencyOption("CZK", "Czech Koruna"),
+    CurrencyOption("PLN", "Polish Złoty"),
+    CurrencyOption("HUF", "Hungarian Forint"),
+    CurrencyOption("TRY", "Turkish Lira"),
+    CurrencyOption("MXN", "Mexican Peso"),
+    CurrencyOption("BRL", "Brazilian Real"),
+    CurrencyOption("ZAR", "South African Rand"),
+    CurrencyOption("CNY", "Chinese Yuan"),
+    CurrencyOption("HKD", "Hong Kong Dollar"),
+    CurrencyOption("SGD", "Singapore Dollar"),
+    CurrencyOption("KRW", "South Korean Won"),
+    CurrencyOption("INR", "Indian Rupee"),
+    CurrencyOption("AED", "UAE Dirham"),
+)
