@@ -9,9 +9,9 @@ The app allows you to add expenses, search for them either by category or by the
 </p>
 
 <p align="center">
+    <img src="https://github.com/varuhn36/ExpenseTracker/blob/main/Images/ExpenseMenuDropDown.jpg" alt="Expense Menu Drop Down" width="200"     height="400"/>
   <img src="https://github.com/varuhn36/ExpenseTracker/blob/main/Images/EditExpense.jpg" alt="Edit Expense" width="200" height="400"/>
   <img src="https://github.com/varuhn36/ExpenseTracker/blob/main/Images/ExpenseDetails.jpg" alt="Expense Details" width="200" height="400"/>
-  <img src="https://github.com/varuhn36/ExpenseTracker/blob/main/Images/ExpenseMenuDropDown.jpg" alt="Expense Menu Drop Down" width="200" height="400"/>
 </p>
 
 <p align="center">
