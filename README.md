@@ -20,11 +20,11 @@ The app allows you to add expenses, search for them either by category or by the
 
 Technologies Used:
 
--Jetpack Compose UI
--Room DB
--Hilt
--Retrofit
--[Frankfurter currency API](https://frankfurter.dev/)
--Datastore to persist user preferences (Just their home currency for now)
+- Jetpack Compose UI
+- Room DB
+- Hilt
+- Retrofit
+- [Frankfurter currency API](https://frankfurter.dev/)
+- Datastore to persist user preferences (Just their home currency for now)
 
 In the future, I plan to extend this project to allow users to share expenses and collaborate, which could be especially useful for planning group trips.
